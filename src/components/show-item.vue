@@ -21,7 +21,7 @@
         <span class="item-gray-btn">
           <router-link :to="{name:'shop' ,query: {itemId:item.sku_info[itemIndex].sku_id}}">查看详情</router-link>
         </span>
-        <span class="item-blue-btn">加入购物车</span>
+        <span class="item-blue-btn" @click="addHandlerCard(item.sku_info[itemIndex])">加入购物车</span>
       </div>
       <div class="item-price clearfix">
         <i>¥</i>
@@ -50,6 +50,10 @@ export default {
     methods: {
     tableData (index) {
       this.itemIndex = index
+    },
+    // 添加购物车
+    addHandlerCard(goods){
+      this.$store.commit("addCard",goods)
     }
   }
 };
