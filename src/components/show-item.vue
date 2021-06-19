@@ -1,7 +1,7 @@
 <template>
   <div class="item">
     <div>
-      <div class="item-img">
+      <div class="item-img" >
         <img
           :alt="item.name"
           :src=item.sku_info[itemIndex].ali_image
@@ -47,13 +47,18 @@ export default {
           type: Object
         }
     },
+    computed: {
+      ball(){
+        return this.$store.state.ball
+      }
+    },
     methods: {
     tableData (index) {
       this.itemIndex = index
     },
     // 添加购物车
     addHandlerCard(goods){
-      this.$store.commit("addCard",goods)
+        this.$store.commit("addCard",goods)
     }
   }
 };
